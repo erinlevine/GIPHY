@@ -11,18 +11,22 @@ function displayFoodGifs() {
 		url: queryURL,
 		method: "GET"
 	}).done(function(response) {
-	   console.log(response);
+		console.log(response);
 
-	   //Creating a new div to hold the food
+		//Creating a new div to hold the food
 	   var newDiv = $("<div>");
 
-	   //Logging the rating for the gif
-	   console.log(response.data.rating);
+	   	//Creating a loop to open the data within the object
+	   	for(var i in response.data){
+	   		console.log(response.data[i]);
+	   	}
 
 	   //Appending the Rating and Gif to HTML
 	   $("#foodGifs").empty();
-	   $("#foodGifs").html("Rating: " + response.data.rating);
-	   $("#foodGifs").append(response.data[0].bitly_url); //Is this the URL to pull the GIFs? I don't know!
+	   $("#foodGifs").html("Rating: " + response.rating);
+	   $("#foodGifs").append(response.bitly_url); //Is this the URL to pull the GIFs? I don't know!
+	   $("#foodGifs").css("font-family", "'Roboto', sans-serif");
+	   $("#foodGifs").css("color", "white");
 	});
 }
 
