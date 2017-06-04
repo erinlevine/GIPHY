@@ -1,0 +1,50 @@
+.wrapper {
+	margin-right: 42%;
+}
+
+body {
+	background-image: url(http://i.imgur.com/0azf5aU.jpg?1);
+	background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+}
+
+h1 {
+	font-family: 'Lily Script One', cursive;
+	text-align: center;
+}
+
+.container {
+	background-color: white;
+    margin-right: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+    opacity: .7;
+    border-radius: 25px;
+}
+
+.topButtons {
+	margin: auto;
+	vertical-align: default;
+}
+
+.sideForm {
+	font-family: 'Roboto', sans-serif;
+    background-color: white;
+    margin-right: 70%;
+    padding: 4px;
+    padding-left: 1%;
+    opacity: .7;
+    border-radius: 25px;
+}
+
+#add-food {
+	font-family: 'Roboto', sans-serif;
+	margin-left: 35%;
+}
+
+#food-input {
+	border-radius: 25px;
+	margin-left: 17%;
+
+}
