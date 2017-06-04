@@ -3,17 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Lotsa Food Gifs!</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
 
 	<div class="container">
 		<h1>Hungry? Click Around to Find Your Favorite Food Gifs!</h1>
 
-		<div class="foodButtons">
-			<form id="foodButtons">
+		<!-- Rendered buttons will get dumped here  -->
+    	<div id="foodButtonsView"></div>
 				
-
-
+		<!-- Form so that user can add new GIF -->
 		<div class="gifForm">
 			<form id="food-form">
 		      <label for="food-input">Add Your Favorite Food Here: </label>
@@ -25,10 +26,14 @@
 		    </form>
 		</div>
 
-		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-    	<script type="text/javascript">
-	
-	</div>
+		<div id="foodGifs">
+			<!-- Food Gifs will be dumped here -->
+		</div>
+		
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="javascript.js"></script>
 	
 </body>
 </html>
