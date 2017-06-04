@@ -1,21 +1,3 @@
-// PSEUDOCODE:
-
-// - Array of food buttons at top of page. 
-
-// - Float ".gifForm" to the right of the page. 
-
-// - When user clicks on food, 10 GIFs from GIPHY pop up.
-
-// - When user clicks on GIF, it moves. 
-
-// - When user clicks again, it stops. 
-
-// - When user adds a new food to ".gifFrom", then a new button is created.
-
-// - When user clicks on newest button, it also produces 10 GIFs. 
-
-//------------------------------------------
-
 //Array of foodstuffs
 var foodStuffs = ["Pizza", "Pasta", "Tacos", "Doughnuts", "Cupcakes", "Waffles", "Fried Chicken", "Burrito", "Eggs", "Cheese", "Pineapple", "Sushi", "Cereal"];
 
@@ -23,7 +5,7 @@ var foodStuffs = ["Pizza", "Pasta", "Tacos", "Doughnuts", "Cupcakes", "Waffles",
 function displayFoodGifs() {
 	var food = $(this).attr("data-name");
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + food + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
-
+	// debugger
 //Create AJAX call for the specific foodstuffs being clicked
 	$.ajax({
 		url: queryURL,
@@ -40,7 +22,7 @@ function displayFoodGifs() {
 	   //Appending the Rating and Gif to HTML
 	   $("#foodGifs").empty();
 	   $("#foodGifs").html("Rating: " + response.data.rating);
-	   $("#foodGifs").append(response) //I HAVE NO IDEA WHAT THIS URL WILL BE!
+	   $("#foodGifs").append(response.data[0].bitly_url); //Is this the URL to pull the GIFs? I don't know!
 	});
 }
 
@@ -72,9 +54,10 @@ function buttonsAppear(){
 	//Function that handles event where the add food button is clicked. LINE 91
 	$("#add-food").on("click", function(event){
 		event.preventDefault();
-		var food = $("#food-input").val().trim();
+		var food = $("#food-input").val().trim(); //WHY AREN'T YOU WORKING?
 		foodStuffs.push(food);
 		buttonsAppear();
+
 	});
 	$(document).on("click", ".food", displayFoodGifs);
 
