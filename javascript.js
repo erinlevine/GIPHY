@@ -5,8 +5,8 @@ var foodStuffs = ["Pizza", "Pasta", "Tacos", "Doughnuts", "Cupcakes", "Waffles",
 function displayFoodGifs() {
 	var food = $(this).attr("data-name");
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + food + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
-	// debugger
-//Create AJAX call for the specific foodstuffs being clicked
+
+    //Create AJAX call for the specific foodstuffs being clicked
 	$.ajax({
 		url: queryURL,
 		method: "GET"
@@ -14,12 +14,36 @@ function displayFoodGifs() {
 		console.log(response);
 
 		//Creating a new div to hold the food
-	   var newDiv = $("<div>");
+		var newDiv = $("<div>");
 
-	   	//Creating a loop to open the data within the object
-	   	for(var i in response.data){
+		//Creating a loop to open the data within the object
+		for (var i in response.data) {
+		    // responseElem is the current element being selected in the loop
+		    var responseElem = response.data[i];
+
+		    //We create a new div to hold the rating and gif
+		    var newDiv = $("<div>");
+
+		    // Within the new div we append a paragraph for the rating
+		    newDiv.append("<p>Rating: " + responseElem.rating + "</p>")
+
+		    // newImg is a new image element that will hold the actual gif
+		    var newImg = $("<img>");
+
+		    // We set the new img element's "src" property 
+		    newImg.prop("src", responseElem.images.original.url);
+
+		    // As with the rating paragraph element, we append newImg to newDiv
+		    newDiv.append(newImg);
+
+		    // Finally, we take the entire newDiv, which now contains the rating
+		    // paragraph element and the new img element, and add it to the
+		    // "#foodGifs" element
+		    $("#foodGifs").append(newDiv);
+
+		} // end of "for" loop
 	   		console.log(response.data[i]);
-	   	}
+	   	});
 
 	   //Appending the Rating and Gif to HTML
 	   $("#foodGifs").empty();
@@ -27,8 +51,8 @@ function displayFoodGifs() {
 	   $("#foodGifs").append(response.bitly_url); //Is this the URL to pull the GIFs? I don't know!
 	   $("#foodGifs").css("font-family", "'Roboto', sans-serif");
 	   $("#foodGifs").css("color", "white");
-	});
-}
+	};
+
 
 //Function for displaying food gifs
 function buttonsAppear(){
@@ -55,7 +79,7 @@ function buttonsAppear(){
 	}
 }
 
-	//Function that handles event where the add food button is clicked. LINE 91
+	//Function that handles event where the add food button is clicked. 
 	$("#add-food").on("click", function(event){
 		event.preventDefault();
 		var food = $("#food-input").val().trim(); //WHY AREN'T YOU WORKING?

@@ -49,3 +49,22 @@ h1 {
 	margin-left: 17%;
 
 }
+
+p {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10%;
+    padding-top: 2%;
+    margin-right: 50%;
+}
+
+#foodGifs {
+    background-color: white;
+    border-radius: 25px;
+    margin-right: 25%;
+}
+
+img {
+    padding-left: 10%;
+    width: 80%;
+}
