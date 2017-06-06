@@ -18,6 +18,7 @@ function displayFoodGifs() {
 
 		//Creating a loop to open the data within the object
 		for (var i in response.data) {
+
 		    // responseElem is the current element being selected in the loop
 		    var responseElem = response.data[i];
 
@@ -45,6 +46,7 @@ function displayFoodGifs() {
 		    // Taking the newDiv with the rating paragraph element and new img element and adding it to the "#foodGifs" element. 
 		    $("#foodGifs").append(newDiv);
 
+
 		} 
 	   		console.log(response.data[i]);
 	   	
@@ -71,6 +73,7 @@ function displayFoodGifs() {
 				 $(this).attr("src", newSrc);
 				 $(this).attr("data-state", "still");
 		   }
+		   	
 		});
 	});
 
