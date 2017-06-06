@@ -2,8 +2,16 @@
 	margin-right: 42%;
 }
 
+/*html { 
+  background: url(https://i.imgur.com/0azf5aU.jpg?1) no-repeat center center fixed; 
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}*/
+
 body {
-	background-image: url(https://i.imgur.com/0azf5aU.jpg?1);
+	background-image: url(https://i.imgur.com/YnlFb6a.jpg);
 	background-repeat: no-repeat;
     background-position: right top;
     background-attachment: fixed;
