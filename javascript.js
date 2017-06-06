@@ -22,7 +22,7 @@ function displayFoodGifs() {
 		    var responseElem = response.data[i];
 
 		    //We create a new div to hold the rating and gif
-		    var newDiv = $("<div>");
+		    var newDiv = $("<div id='aroundGifs>'");
 
 		    // Within the new div we append a paragraph for the rating
 		    newDiv.append("<p>Rating: " + responseElem.rating + "</p>")
@@ -41,7 +41,7 @@ function displayFoodGifs() {
 		    // "#foodGifs" element
 		    $("#foodGifs").append(newDiv);
 
-		} // end of "for" loop
+		} 
 	   		console.log(response.data[i]);
 	   	});
 
