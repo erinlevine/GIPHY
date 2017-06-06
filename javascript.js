@@ -11,6 +11,7 @@ function displayFoodGifs() {
 		url: queryURL,
 		method: "GET"
 	}).done(function(response) {
+		$("#foodGifs").empty();
 		console.log(response);
 
 		//Creating a new div to hold the food
@@ -73,7 +74,7 @@ function displayFoodGifs() {
 				 $(this).attr("src", newSrc);
 				 $(this).attr("data-state", "still");
 		   }
-		   	
+
 		});
 	});
 
