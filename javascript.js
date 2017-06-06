@@ -22,7 +22,7 @@ function displayFoodGifs() {
 		    var responseElem = response.data[i];
 
 		    //We create a new div to hold the rating and gif
-		    var newDiv = $("<div id='aroundGifs>'");
+		    var newDiv = $("<div id='aroundGifs'>");
 
 		    // Within the new div we append a paragraph for the rating
 		    newDiv.append("<p>Rating: " + responseElem.rating + "</p>")
@@ -46,9 +46,9 @@ function displayFoodGifs() {
 	   	});
 
 	   //Appending the Rating and Gif to HTML
-	   $("#foodGifs").empty();
-	   $("#foodGifs").html("Rating: " + response.rating);
-	   $("#foodGifs").append(response.bitly_url); //Is this the URL to pull the GIFs? I don't know!
+//	   $("#foodGifs").empty();
+//	   $("#foodGifs").html("Rating: " + response.rating);
+//	   $("#foodGifs").append(response.bitly_url); //Is this the URL to pull the GIFs? I don't know!
 	   $("#foodGifs").css("font-family", "'Roboto', sans-serif");
 	   $("#foodGifs").css("color", "white");
 	};
