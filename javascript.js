@@ -21,37 +21,61 @@ function displayFoodGifs() {
 		    // responseElem is the current element being selected in the loop
 		    var responseElem = response.data[i];
 
-		    //We create a new div to hold the rating and gif
+		    //Creating a new div to hold the rating and gif
 		    var newDiv = $("<div id='aroundGifs'>");
 
-		    // Within the new div we append a paragraph for the rating
+		    // Within the new div, appending a paragraph for the rating
 		    newDiv.append("<p>Rating: " + responseElem.rating + "</p>")
 
 		    // newImg is a new image element that will hold the actual gif
 		    var newImg = $("<img>");
 
-		    // We set the new img element's "src" property 
-		    newImg.prop("src", responseElem.images.original.url);
+		    // Setting some new elements to help with the click function below for pausing and starting gif functionality:
+		    newImg.attr({
+				"src": responseElem.images.original_still.url,
+				"data-still": responseElem.images.original_still.url,
+				"data-animate": responseElem.images.original.url,
+				"data-state": "still",
+				"class": "gif"
+			});
 
-		    // As with the rating paragraph element, we append newImg to newDiv
+		    // Append newImg to newDiv
 		    newDiv.append(newImg);
 
-		    // Finally, we take the entire newDiv, which now contains the rating
-		    // paragraph element and the new img element, and add it to the
-		    // "#foodGifs" element
+		    // Taking the newDiv with the rating paragraph element and new img element and adding it to the "#foodGifs" element. 
 		    $("#foodGifs").append(newDiv);
 
 		} 
 	   		console.log(response.data[i]);
-	   	});
+	   	
 
-	   //Appending the Rating and Gif to HTML
-//	   $("#foodGifs").empty();
-//	   $("#foodGifs").html("Rating: " + response.rating);
-//	   $("#foodGifs").append(response.bitly_url); //Is this the URL to pull the GIFs? I don't know!
+	   //Making it pretty
 	   $("#foodGifs").css("font-family", "'Roboto', sans-serif");
 	   $("#foodGifs").css("color", "white");
-	};
+
+	   // Selecting any element that is a 'gif' and adding a click function
+	   $(".gif").on("click", function() {
+
+	   		//Creating a new variable for gifs with the data state of either still or animate
+	   		var state = $(this).attr("data-state");
+
+	   		//Condition for when the state is still and how we will change it to animate:
+	   		if (state === "still") {
+		   		var newSrc = $(this).attr("data-animate");
+				$(this).attr("src", newSrc);
+				$(this).attr("data-state", "animate");
+
+				//Condition for if the state is animate and how we will change it to still:
+			 } else {
+				 var newSrc = $(this).attr("data-still");
+				 $(this).attr("src", newSrc);
+				 $(this).attr("data-state", "still");
+		   }
+		});
+	});
+
+};
+	
 
 
 //Function for displaying food gifs
@@ -82,7 +106,7 @@ function buttonsAppear(){
 	//Function that handles event where the add food button is clicked. 
 	$("#add-food").on("click", function(event){
 		event.preventDefault();
-		var food = $("#food-input").val().trim(); //WHY AREN'T YOU WORKING?
+		var food = $("#food-input").val().trim(); 
 		foodStuffs.push(food);
 		buttonsAppear();
 
