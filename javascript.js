@@ -4,7 +4,7 @@ var foodStuffs = ["Pizza", "Pasta", "Tacos", "Doughnuts", "Cupcakes", "Waffles",
 //displayFoodGifs is the function to display the food GIFs from GIPHY
 function displayFoodGifs() {
 	var food = $(this).attr("data-name");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + food + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + food + "&limit=10&rating&api_key=dc6zaTOxFJmzC";
 
     //Create AJAX call for the specific foodstuffs being clicked
 	$.ajax({
